@@ -3,9 +3,10 @@
 Function that returns a list of lists of integers representing the Pascal's
 triangle of n
 
-
 STEPS
-- Initialize triangle with the first row as base case
+- Return an empty list if n is less than or equal to zero
+- Initialize triangle with the first row as base case when n is greater than
+  zero
 - Loop through rows from i = 1 to i = n-1 excluding the first row
 - Initialize each row to start with 1
 - Loop through elements within the row except the first and last
@@ -18,7 +19,15 @@ STEPS
 - Return the generated triangle
 """
 
+
 def pascal_triangle(n):
+    """
+    Returns a list of list of integers representing the Pascal's triangle of
+    n or an empty list if n <= 0.
+    """
+    if n <= 0:
+        return []
+
     triangle = [[1]]
 
     for i in range(1, n):
@@ -29,5 +38,5 @@ def pascal_triangle(n):
             row.append(next_item)
         row.append(1)
         triangle.append(row)
-    
+
     return triangle
