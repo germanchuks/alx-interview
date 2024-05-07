@@ -3,6 +3,7 @@
 Method that calculates the fewest number of operations needed to result in
 exactly n H characters in a file.
 """
+from typing import List
 
 
 def minOperations(n: int) -> int:
@@ -11,11 +12,11 @@ def minOperations(n: int) -> int:
     if (n <= 0):
         return 0
 
-    char_list = ['H']
-    operations = 0
+    char_list: List = ['H']
+    operations: int = 0
 
     while (len(char_list) != n):
-        char = 'H'
+        char: str = 'H'
         if ((len(char_list) % 2 == 0 or len(char_list) == 1)
                 and len(char_list) ** 2 <= n):
             char = ''.join(char_list)
